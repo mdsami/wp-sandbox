@@ -31,11 +31,13 @@
       <file leaf-file-name="wp-sandbox.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-sandbox.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9414802" vertical-offset="3584" max-vertical-offset="4233">
-              <caret line="243" column="1" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.18923934" vertical-offset="4233" max-vertical-offset="8925">
+              <caret line="255" column="47" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="47" />
               <folding>
                 <element signature="e#7#248#0#PHP" expanded="true" />
-                <marker date="1502470312444" expanded="true" signature="4091:4161" placeholder="CREATE TABLE..IF..." />
+                <marker date="1502473576441" expanded="true" signature="4374:4444" placeholder="CREATE TABLE..IF..." />
+                <marker date="1502473576441" expanded="true" signature="9182:9298" placeholder="select * fro..." />
+                <marker date="1502473576441" expanded="true" signature="9648:9681" placeholder="drop table I..." />
               </folding>
             </state>
           </provider>
@@ -228,7 +230,13 @@
       <option name="project" value="LOCAL" />
       <updated>1502469777878</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="admin menu added">
+      <created>1502470457608</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1502470457608</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -310,11 +318,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-sandbox.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9414802" vertical-offset="3584" max-vertical-offset="4233">
-          <caret line="243" column="1" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.18923934" vertical-offset="4233" max-vertical-offset="8925">
+          <caret line="255" column="47" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="47" />
           <folding>
             <element signature="e#7#248#0#PHP" expanded="true" />
-            <marker date="1502470312444" expanded="true" signature="4091:4161" placeholder="CREATE TABLE..IF..." />
+            <marker date="1502473576441" expanded="true" signature="4374:4444" placeholder="CREATE TABLE..IF..." />
+            <marker date="1502473576441" expanded="true" signature="9182:9298" placeholder="select * fro..." />
+            <marker date="1502473576441" expanded="true" signature="9648:9681" placeholder="drop table I..." />
           </folding>
         </state>
       </provider>
