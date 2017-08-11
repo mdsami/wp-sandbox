@@ -60,7 +60,7 @@ function wp_sandbox_activation(){
 //Login visitors without username and password
 
 add_action( 'init', 'wp_sandbox_login' );
-function test_drive_login(){
+function wp_sandbox_login(){
     global $wpdb;
     if (!( is_user_logged_in() )) {
         $creds = array(
