@@ -13,3 +13,7 @@ License: A "Slug" license name e.g. GPL2
 
 // Prohibit direct file accessing.
 defined( 'ABSPATH' ) or die( 'Access not allowed!' );
+
+
+//testing time for  users in sec
+$wpSandbocSec = get_option('sandboxTime',20)*60;
