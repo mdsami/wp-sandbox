@@ -74,3 +74,100 @@ function wp_sandbox_login(){
         exit();
     }
 }
+
+//init plugin and run
+add_action( 'init', 'wp_sandbox_init' );
+function wp_sandbox_init() {
+    global $table_prefix,$wpdb ;
+    if(session_id() == ''){
+        session_start();
+    }
+
+    if(@$_SESSION['table_prefix'] == $table_prefix){
+        die('Cheating huh?');
+    }
+    //Delete old sessions that logged in for a long time
+    wp_sandbox_deleteOldSessions();
+
+    //Set table_prefix by user ip address
+    if(@$_SESSION['table_prefix']!=''){
+        $_SESSION['table_prefix'] = str_replace(":","_",wp_sandbox_get_ip_address().'_');
+        $_SESSION['table_prefix'] = str_replace(".","_",$_SESSION['table_prefix']);
+        $_SESSION['table_prefix'] = '_'.$_SESSION['table_prefix'];
+        if(@$_SESSION['table_prefix'] == $table_prefix){
+            die('Cheating huh?');
+        }
+        $_SESSION['table_prefix'] = esc_sql($_SESSION['table_prefix']);
+        if(@$_SESSION['sandboxUnlocked']!==true){
+            $wpdb->set_prefix($_SESSION['table_prefix']);
+        }
+    }
+
+    //Create test tables for each user
+    if ( is_admin() && @$_SESSION['table_prefix']=='') {
+        $_SESSION['table_prefix'] = str_replace(":","_",wp_sandbox_get_ip_address().'_');
+        $_SESSION['table_prefix'] = str_replace(".","_",$_SESSION['table_prefix']);
+        $_SESSION['table_prefix'] = '_'.$_SESSION['table_prefix'];
+        $result = $wpdb->get_results("show tables like '".$wpdb->prefix."%'",ARRAY_N);
+        foreach($result as $row ){
+            $name = substr($row[0],strlen($wpdb->prefix));
+            $wpdb->get_results("CREATE TABLE IF NOT EXISTS `".$_SESSION['table_prefix'].$name."` LIKE ".$wpdb->prefix.$name);
+            $wpdb->get_results("INSERT ignore `".$_SESSION['table_prefix'].$name."` SELECT * FROM ".$wpdb->prefix.$name);
+        }
+
+        //Set start time of test for each user
+        $wpdb->get_results("INSERT ignore into ".$_SESSION['table_prefix']."options(option_name,option_value) values('sandboxStartTime',UNIX_TIMESTAMP())");
+        $table_prefix  = $_SESSION['table_prefix'];
+        if(@$_SESSION['sandboxUnlocked']!==true){
+            $wpdb->set_prefix($table_prefix);
+        }
+    }
+    //Restrict access to the edit files
+    if(@$_SESSION['sandboxUnlocked']!==true){
+        wp_sandbox_setPermission();
+    }
+    wp_cache_flush();
+}
+
+//Restrict access to the edit files
+function wp_sandbox_setPermission(){
+    if(!defined('DISALLOW_FILE_EDIT')){
+        define( 'DISALLOW_FILE_EDIT', true );
+    }else{
+        echo "Please set DISALLOW_FILE_EDIT to TRUE";
+    }
+    if(!defined('DISALLOW_FILE_MODS')){
+        define( 'DISALLOW_FILE_MODS', true );
+    }else{
+        echo "Please set DISALLOW_FILE_MODS to TRUE";
+    }
+    if(!defined('AUTOMATIC_UPDATER_DISABLED')){
+        define( 'AUTOMATIC_UPDATER_DISABLED', true );
+    }else {
+        echo "Please set AUTOMATIC_UPDATER_DISABLED to TRUE";
+    }
+
+}
+
+// Remove Restricted pages from navbar
+add_action('admin_menu', 'wp_sandbox_remove_menus');
+function wp_sandbox_remove_menus(){
+    global $menu;
+    if(@$_SESSION['sandboxDriveUnlocked']!==true){
+        $restricted = json_decode(get_option('sandboxDriveRestrict','[]'));
+        foreach ($restricted as $key => $value) {
+            $restricted[$key] = __($value);
+        }
+        end ($menu);
+        while (prev($menu)){
+            $value = explode(' ',$menu[key($menu)][0]);
+            if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+        }
+    }
+}
+
+
+//Fix reauth bug!
+if(!function_exists('auth_redirect')) {
+    function auth_redirect(){}
+}
