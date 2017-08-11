@@ -55,8 +55,22 @@ function wp_sandbox_activation(){
         wp_update_user( array ( 'ID' => username_exists('sandbox-test-user'), 'role' => 'sandbox-user-role' ) ) ;
     }
 
+}
 
+//Login visitors without username and password
 
-
-
+add_action( 'init', 'wp_sandbox_login' );
+function test_drive_login(){
+    global $wpdb;
+    if (!( is_user_logged_in() )) {
+        $creds = array(
+            'user_login' => 'sandbox-test-user',
+            'user_password' => 'test-password'
+        );
+        wp_signon( $creds, false );
+    }
+    if(@$_GET['sandbox'] == 'true'){
+        wp_redirect(admin_url());
+        exit();
+    }
 }

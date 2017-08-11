@@ -31,8 +31,8 @@
       <file leaf-file-name="wp-sandbox.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-sandbox.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6781411" vertical-offset="541" max-vertical-offset="1139">
-              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.9414802" vertical-offset="728" max-vertical-offset="1377">
+              <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
               <folding>
                 <element signature="e#7#248#0#PHP" expanded="true" />
               </folding>
@@ -203,7 +203,13 @@
       <option name="project" value="LOCAL" />
       <updated>1502465507059</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add sanbox user role  caps added">
+      <created>1502465999649</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1502465999649</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -249,7 +255,8 @@
     </option>
     <MESSAGE value="testing time for user set 20 min" />
     <MESSAGE value="add sanbox user role" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sanbox user role" />
+    <MESSAGE value="add sanbox user role  caps added" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sanbox user role  caps added" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>C:\xampp\htdocs\wpdemo</wordpressPath>
@@ -282,8 +289,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-sandbox.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6781411" vertical-offset="541" max-vertical-offset="1139">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.9414802" vertical-offset="728" max-vertical-offset="1377">
+          <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
           <folding>
             <element signature="e#7#248#0#PHP" expanded="true" />
           </folding>
