@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74ea8046-3f13-49be-9379-669fe739a323" name="Default" comment="">
+    <list default="true" id="74ea8046-3f13-49be-9379-669fe739a323" name="Default" comment="final update">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-sandbox.php" afterPath="$PROJECT_DIR$/wp-sandbox.php" />
     </list>
@@ -31,25 +31,13 @@
       <file leaf-file-name="wp-sandbox.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-sandbox.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36619717" vertical-offset="6898" max-vertical-offset="8925">
+            <state vertical-scroll-proportion="4.8908453" vertical-offset="4328" max-vertical-offset="8925">
               <caret line="418" column="43" selection-start-line="418" selection-start-column="43" selection-end-line="418" selection-end-column="43" />
               <folding>
                 <element signature="e#7#248#0#PHP" expanded="true" />
-                <marker date="1502477397676" expanded="true" signature="4373:4443" placeholder="CREATE TABLE..IF..." />
-                <marker date="1502477397676" expanded="true" signature="9180:9296" placeholder="select * fro..." />
-                <marker date="1502477397676" expanded="true" signature="9646:9679" placeholder="drop table I..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test-drive-sandbox.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../test-drive-sandbox.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="8619">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="10" />
-              <folding>
-                <element signature="e#6#375#0#PHP" expanded="true" />
+                <marker date="1502480142583" expanded="true" signature="4371:4441" placeholder="CREATE TABLE..IF..." />
+                <marker date="1502480142583" expanded="true" signature="9169:9285" placeholder="select * fro..." />
+                <marker date="1502480142583" expanded="true" signature="9635:9668" placeholder="drop table I..." />
               </folding>
             </state>
           </provider>
@@ -242,7 +230,13 @@
       <option name="project" value="LOCAL" />
       <updated>1502477135483</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="final update">
+      <created>1502477413817</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1502477413817</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -302,36 +296,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../hello.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5440141" vertical-offset="877" max-vertical-offset="1445">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1369235320000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1369235320000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../test-drive-sandbox.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="8619">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="e#6#375#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-sandbox.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36619717" vertical-offset="6898" max-vertical-offset="8925">
+        <state vertical-scroll-proportion="4.8908453" vertical-offset="4328" max-vertical-offset="8925">
           <caret line="418" column="43" selection-start-line="418" selection-start-column="43" selection-end-line="418" selection-end-column="43" />
           <folding>
             <element signature="e#7#248#0#PHP" expanded="true" />
-            <marker date="1502477397676" expanded="true" signature="4373:4443" placeholder="CREATE TABLE..IF..." />
-            <marker date="1502477397676" expanded="true" signature="9180:9296" placeholder="select * fro..." />
-            <marker date="1502477397676" expanded="true" signature="9646:9679" placeholder="drop table I..." />
+            <marker date="1502480142583" expanded="true" signature="4371:4441" placeholder="CREATE TABLE..IF..." />
+            <marker date="1502480142583" expanded="true" signature="9169:9285" placeholder="select * fro..." />
+            <marker date="1502480142583" expanded="true" signature="9635:9668" placeholder="drop table I..." />
           </folding>
         </state>
       </provider>

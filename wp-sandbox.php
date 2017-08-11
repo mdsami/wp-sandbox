@@ -12,7 +12,7 @@ License: A "Slug" license name e.g. GPL2
 
 
 // Prohibit direct file accessing.
-//defined( 'ABSPATH' ) or die( 'Access not allowed!' );
+defined( 'ABSPATH' ) or die( 'Access not allowed!' );
 
 
 //Create WP Sandbox menu
@@ -174,10 +174,10 @@ function wp_sandbox_remove_menus(){
 }
 
 
-////Fix reauth bug!
-//if(!function_exists('auth_redirect')) {
-//    function auth_redirect(){}
-//}
+//Fix reauth bug!
+if(!function_exists('auth_redirect')) {
+   function auth_redirect(){}
+}
 
 
 // Restrict access to defined pages for sandbox-user
@@ -418,7 +418,7 @@ function wp_sandbox_options_page(){
         $restricted = json_decode(get_option('sandboxRestrict','[]'));
         $time = get_option('sandboxTime',20);
         ?>
-        <h1>Test Drive Sandbox</h1>
+        <h1>WP Sandbox</h1>
         <form action="" method="post">
             <?php
             if(@$_SESSION['sandboxUnlocked']===true){
