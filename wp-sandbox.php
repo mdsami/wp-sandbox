@@ -171,3 +171,74 @@ function wp_sandbox_remove_menus(){
 if(!function_exists('auth_redirect')) {
     function auth_redirect(){}
 }
+
+
+// Restrict access to defined pages for sandbox-user
+add_action( 'admin_init', 'wp_sandbox_restrict_admin_with_redirect' );
+function wp_sandbox_restrict_admin_with_redirect() {
+    $restricted = json_decode(get_option('sandboxDriveRestrict','[]'));
+    $restrictions[] = '/wp-admin/ms-delete-site.php';
+    if(in_array('Posts',$restricted)){
+        $restrictions[] = '/wp-admin/edit.php';
+        $restrictions[] = '/wp-admin/post-new.php';
+        $restrictions[] = '/wp-admin/edit-tags.php';
+        $restrictions[] = '/wp-admin/edit-tag-form.php';
+    }
+
+    if(in_array('Pages',$restricted)){
+        $restrictions[] = '/wp-admin/edit.php?post_type=page';
+        $restrictions[] = '/wp-admin/post-new.php?post_type=page';
+    }
+
+    if(in_array('Comments',$restricted)){
+        $restrictions[] = '/wp-admin/edit-comments.php';
+    }
+
+    if(in_array('Appearance',$restricted)){
+        $restrictions[] = '/wp-admin/themes.php';
+        $restrictions[] = '/wp-admin/widgets.php';
+        $restrictions[] = '/wp-admin/nav-menus.php';
+        $restrictions[] = '/wp-admin/theme-editor.php';
+    }
+
+    if(in_array('Plugins',$restricted)){
+        $restrictions[] = '/wp-admin/plugins.php';
+        $restrictions[] = '/wp-admin/plugin-install.php';
+    }
+
+    if(in_array('Users',$restricted)){
+        $restrictions[] = '/wp-admin/users.php';
+        $restrictions[] = '/wp-admin/ms-users.php';
+        $restrictions[] = '/wp-admin/user-new.php';
+    }
+
+    if(in_array('Tools',$restricted)){
+        $restrictions[] = '/wp-admin/tools.php';
+        $restrictions[] = '/wp-admin/import.php';
+        $restrictions[] = '/wp-admin/export.php';
+    }
+
+    if(in_array('Setting',$restricted)){
+        $restrictions[] = '/wp-admin/options_general.php';
+        $restrictions[] = '/wp-admin/options-writing.php';
+        $restrictions[] = '/wp-admin/options-reading.php';
+        $restrictions[] = '/wp-admin/options-privacy.php';
+        $restrictions[] = '/wp-admin/options-permalink.php';
+    }
+
+    foreach ( $restrictions as $restriction ) {
+        if ( ! current_user_can( 'manage_network' ) && strpos($_SERVER['PHP_SELF'],$restriction) !== false ) {
+            wp_redirect( admin_url() );
+            exit;
+        }
+    }
+}
+
+
+
+//Restrict access to the delete media files
+add_action('media_row_actions','wp_sandbox_users_own_attachments', 2, 1);
+function wp_sandbox_users_own_attachments( $wp_query_obj ) {
+    unset($wp_query_obj['delete']);
+    return $wp_query_obj;
+}
