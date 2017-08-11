@@ -23,7 +23,7 @@ function wp_sandbox_admin_add_page() {
 add_action('admin_menu', 'wp_sandbox_admin_add_page');
 
 //testing time for  users in sec
-$sandboxeLiveSec = get_option('sandboxTime',20)*60;
+$sandboxLiveSec = get_option('sandboxTime',20)*60;
 
 
 //Add Action/filter Hook
@@ -253,7 +253,7 @@ function wp_sandbox_users_own_attachments( $wp_query_obj ) {
 
 //Delete old sessions that logged in for a long time
 function wp_sandbox_deleteOldSessions(){
-    global $wpdb,$table_prefix,$sandboxeLiveSec;
+    global $wpdb,$table_prefix,$sandboxLiveSec;
 
     $result = $wpdb->get_results("show tables like '%options'",ARRAY_N);
     foreach($result as $row ){
@@ -416,7 +416,7 @@ function wp_sandbox_options_page(){
             deactivate_plugins(plugin_basename(__FILE__));
         }
         $restricted = json_decode(get_option('sandboxRestrict','[]'));
-        $time = get_option('sandboxTime',15);
+        $time = get_option('sandboxTime',20);
         ?>
         <h1>Test Drive Sandbox</h1>
         <form action="" method="post">
