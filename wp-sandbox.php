@@ -30,7 +30,30 @@ function wp_sandbox_activation(){
     $adm = $wp_roles->get_role('administrator');
 
     // Adding a new role with all admin caps.
-    $wp_roles->add_role('sandbox-user', 'My Custom Role', $adm->capabilities);
+    $wp_roles->add_role('sandbox-user-role', 'My Custom Role', $adm->capabilities);
+
+
+    //Remove Critical roles from sandbox-user-role
+    $wp_roles->remove_cap( 'sandbox-user-role', 'delete_others_posts' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'edit_others_posts' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'upload_file' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'update_plugins' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'update_themes' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'install_plugins' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'install_themes' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'delete_plugins' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'edit_plugins' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'edit_files' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'edit_users' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'create_users' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'delete_users' );
+    $wp_roles->remove_cap( 'sandbox-user-role', 'unfiltered_html' );
+
+    //Create user for sandbox
+    if(!( username_exists('sandbox-test-user') )){
+        wp_create_user( 'sandbox-test-user', 'test-password', 'user@exmaple.com' );
+        wp_update_user( array ( 'ID' => username_exists('sandbox-test-user'), 'role' => 'sandbox-user-role' ) ) ;
+    }
 
 
 
